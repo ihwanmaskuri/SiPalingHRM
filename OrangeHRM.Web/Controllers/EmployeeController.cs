@@ -1,6 +1,6 @@
-using System.Web.Mvc;
 using OrangeHRM.Core.Services;
 using OrangeHRM.Entities;
+using System.Web.Mvc;
 
 namespace OrangeHRM.Web.Controllers
 {

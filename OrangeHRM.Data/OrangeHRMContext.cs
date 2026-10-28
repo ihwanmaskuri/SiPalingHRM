@@ -1,5 +1,5 @@
-using System.Data.Entity;
 using OrangeHRM.Entities;
+using System.Data.Entity;
 
 namespace OrangeHRM.Data
 {
@@ -32,7 +32,7 @@ namespace OrangeHRM.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            
+
             // Custom mappings if needed
         }
     }

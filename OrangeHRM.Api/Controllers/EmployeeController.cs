@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-using System.Web.Http;
 using OrangeHRM.Core.Services;
 using OrangeHRM.Entities;
+using System.Collections.Generic;
+using System.Web.Http;
 
 namespace OrangeHRM.Api.Controllers
 {

@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
 using OrangeHRM.Core.Services;
 using OrangeHRM.Data;
 using OrangeHRM.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace OrangeHRM.Core.Services
 {

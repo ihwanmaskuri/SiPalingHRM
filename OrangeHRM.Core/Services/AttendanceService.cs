@@ -1,7 +1,7 @@
-using System;
-using System.Linq;
 using OrangeHRM.Data;
 using OrangeHRM.Entities;
+using System;
+using System.Linq;
 
 namespace OrangeHRM.Core.Services
 {

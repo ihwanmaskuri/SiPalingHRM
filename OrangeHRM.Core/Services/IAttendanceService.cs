@@ -1,5 +1,5 @@
-using System;
 using OrangeHRM.Entities;
+using System;
 
 namespace OrangeHRM.Core.Services
 {

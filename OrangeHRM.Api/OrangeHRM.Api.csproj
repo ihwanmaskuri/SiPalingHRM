@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>OrangeHRM.Api</RootNamespace>
+    <AssemblyName>OrangeHRM.Api</AssemblyName>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrangeHRM.Core\OrangeHRM.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Http" />
+    <Reference Include="System.Web.Http.WebHost" />
+    <Reference Include="Microsoft.AspNet.WebApi.Core" />
+  </ItemGroup>
+</Project>

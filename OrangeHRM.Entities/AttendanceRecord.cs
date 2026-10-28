@@ -20,7 +20,7 @@ namespace OrangeHRM.Entities
         public string PunchInNote { get; set; }
         public DateTime? PunchOutUtcTime { get; set; }
         public string PunchOutNote { get; set; }
-        
+
         [StringLength(255)]
         public string State { get; set; } // PUNCHED IN, PUNCHED OUT
     }

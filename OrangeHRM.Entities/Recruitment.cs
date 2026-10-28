@@ -26,7 +26,7 @@ namespace OrangeHRM.Entities
         public int NumberOfPositions { get; set; }
 
         public bool Status { get; set; } // Active / Closed
-        
+
         public DateTime DefinedTime { get; set; }
     }
 
@@ -54,7 +54,7 @@ namespace OrangeHRM.Entities
         public string ContactNumber { get; set; }
 
         public short Status { get; set; } // Application Initiated, Shortlisted, Interviewed, Hired, Rejected
-        
+
         public DateTime DateOfApplication { get; set; }
     }
 }

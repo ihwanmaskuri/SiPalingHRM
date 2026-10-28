@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>OrangeHRM.Web</RootNamespace>
+    <AssemblyName>OrangeHRM.Web</AssemblyName>
+    <MvcBuildViews>true</MvcBuildViews>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrangeHRM.Core\OrangeHRM.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Mvc" />
+    <Reference Include="Microsoft.AspNet.WebPages" />
+  </ItemGroup>
+</Project>
