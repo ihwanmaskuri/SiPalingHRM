@@ -1,0 +1,53 @@
+@model IEnumerable<OrangeHRM.Entities.Employee>
+
+@{
+    ViewBag.Title = "Payroll Overview";
+}
+
+<h2>Payroll Overview</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Employee List</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Salary Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var employee in Model)
+                        {
+                            <tr>
+                                <td>@employee.EmployeeNumber</td>
+                                <td>@employee.FirstName @employee.LastName</td>
+                                <td>@employee.WorkEmail</td>
+                                <td>
+                                    @if (_payrollService.GetEmployeeSalaries(employee.EmployeeNumber).Any())
+                                    {
+                                        <span class="badge badge-success">Configured</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-warning">Not Configured</span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.ActionLink("View Salary", "EmployeeSalary", new { id = employee.EmployeeNumber }, new { @class = "btn btn-sm btn-info" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

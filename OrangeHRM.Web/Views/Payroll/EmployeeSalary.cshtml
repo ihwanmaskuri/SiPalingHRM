@@ -1,0 +1,113 @@
+@model IEnumerable<OrangeHRM.Entities.EmpBasicSalary>
+
+@{
+    ViewBag.Title = "Employee Salary Configuration";
+    ViewBag.EmployeeName = "@ViewBag.Employee.FirstName @ViewBag.Employee.LastName";
+    ViewBag.EmployeeId = ViewBag.Employee.EmployeeNumber;
+}
+
+<h2>Salary Configuration for @ViewBag.EmployeeName</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Basic Salary Details</h4>
+            </div>
+            <div class="card-body">
+                @if (Model.Any())
+                {
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Pay Period</th>
+                                <th>Currency</th>
+                                <th>Salary Amount</th>
+                                <th>Component</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var salary in Model)
+                            {
+                                <tr>
+                                    <td>@salary.Id</td>
+                                    <td>@salary.PayPeriodCode</td>
+                                    <td>@salary.CurrencyId</td>
+                                    <td>@salary.BasicSalary.ToString("C")</td>
+                                    <td>@salary.SalaryComponent</td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "EditSalary", new { id = salary.Id }, new { @class = "btn btn-sm btn-warning" })
+                                        @Html.ActionLink("Delete", "DeleteSalary", new { id = salary.Id }, new { @class = "btn btn-sm btn-danger", @onclick = "return confirm('Are you sure?')" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        No salary records found for this employee.
+                    </div>
+                }
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h4>Add New Salary</h4>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("AddSalary", "Payroll", FormMethod.Post, new { id = "salaryForm", @class = "form-horizontal" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            
+                            <input type="hidden" name="EmployeeNumber" value="@ViewBag.Employee.EmployeeNumber" />
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Pay Period:</label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.PayPeriodCode, new SelectList(ViewBag.PayPeriods, "Code", "Name"), "Select Pay Period", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Currency:</label>
+                                <div class="col-md-9">
+                                    @Html.DropDownListFor(m => m.CurrencyId, new SelectList(ViewBag.Currencies, "CurrencyId", "CurrencyName"), "Select Currency", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Salary Amount:</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(m => m.BasicSalary, new { @class = "form-control", type = "number", step = "0.01" })
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Salary Component:</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(m => m.SalaryComponent, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Comments:</label>
+                                <div class="col-md-9">
+                                    @Html.TextAreaFor(m => m.Comments, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button type="submit" class="btn btn-primary">Save Salary</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

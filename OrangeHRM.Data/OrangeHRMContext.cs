@@ -24,6 +24,10 @@ namespace OrangeHRM.Data
         public DbSet<PerformanceReview> PerformanceReviews { get; set; }
         public DbSet<JobVacancy> JobVacancies { get; set; }
         public DbSet<JobCandidate> JobCandidates { get; set; }
+        public DbSet<PayPeriod> PayPeriods { get; set; }
+        public DbSet<CurrencyType> CurrencyTypes { get; set; }
+        public DbSet<EmpBasicSalary> EmpBasicSalaries { get; set; }
+        public DbSet<EmpDirectDebit> EmpDirectDebits { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
