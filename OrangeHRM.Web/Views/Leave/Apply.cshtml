@@ -1,0 +1,34 @@
+@model OrangeHRM.Entities.LeaveRequest
+
+@{
+    ViewBag.Title = "Apply for Leave";
+}
+
+<h2>Apply for Leave</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.EmployeeNumber, "Employee Number")
+        @Html.TextBoxFor(m => m.EmployeeNumber, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LeaveTypeId, "Leave Type")
+        @Html.DropDownListFor(m => m.LeaveTypeId, new SelectList(ViewBag.LeaveTypes, "Id", "Name"), "Select Leave Type", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateApplied, "Date Applied")
+        @Html.TextBoxFor(m => m.DateApplied, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Comments, "Comments")
+        @Html.TextAreaFor(m => m.Comments, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Request</button>
+}

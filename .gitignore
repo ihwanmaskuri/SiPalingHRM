@@ -1,0 +1,23 @@
+## Visual Studio ##
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## NuGet ##
+packages/
+*.nuget.props
+*.nuget.targets
+
+## Compiled ##
+*.dll
+*.exe
+*.pdb
+*.log
+
+## OS ##
+.DS_Store
+Thumbs.db
