@@ -1,0 +1,7 @@
+@model IEnumerable<OrangeHRM.Entities.JobTitle>
+
+<div class="form-group">
+    @Html.Label("Job Title", htmlAttributes: new { @class = "control-label" })
+    @Html.DropDownList("JobTitleId", new SelectList(Model, "Id", "Title"), "Select Job Title", new { @class = "form-control" })
+    @Html.ValidationMessage("JobTitleId", "", new { @class = "text-danger" })
+</div>

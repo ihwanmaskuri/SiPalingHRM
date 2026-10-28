@@ -1,0 +1,83 @@
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Dashboard</h2>
+        <p>Welcome back, Admin!</p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white p-3">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-users"></i> Total Employees</h5>
+                <p class="card-text h3">150</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white p-3">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-calendar-check"></i> On Leave Today</h5>
+                <p class="card-text h3">5</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-dark p-3">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-clock"></i> Late Today</h5>
+                <p class="card-text h3">12</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white p-3">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-briefcase"></i> Open Vacancies</h5>
+                <p class="card-text h3">3</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="card p-3">
+            <h4>Recent Attendance</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Punch In</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>08:05 AM</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>08:12 AM</td>
+                        <td>Traffic jam</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card p-3">
+            <h4>Pending Leave Requests</h4>
+            <ul class="list-group">
+                <li class="list-group-item">Alice - Annual Leave (2026-11-01)</li>
+                <li class="list-group-item">Bob - Sick Leave (2026-10-28)</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+@model OrangeHRM.Entities.Employee
+
+@{
+    ViewBag.Title = "Employee Details";
+}
+
+<h2>Employee Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">@Model.FirstName @Model.LastName</h4>
+        <p class="card-text">Employee ID: @Model.EmployeeNumber</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <strong>Email:</strong> @Model.WorkEmail
+        </li>
+        <li class="list-group-item">
+            <strong>Birthday:</strong> @Model.Birthday?.ToString("dd MMMM yyyy")
+        </li>
+        <li class="list-group-item">
+            <strong>Joined Date:</strong> @Model.JoinedDate?.ToString("dd MMMM yyyy")
+        </li>
+    </ul>
+</div>
+
+<div class="mt-4">
+    @Html.ActionLink("Back to List", "Index", "Employee", null, new { @class = "btn btn-secondary" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeNumber }, new { @class = "btn btn-warning" })
+</div>

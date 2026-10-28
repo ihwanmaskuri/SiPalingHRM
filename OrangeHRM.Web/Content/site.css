@@ -1,0 +1,60 @@
+/* Custom styles for SiPalingHRM */
+
+/* OrangeHRM-like color scheme */
+:root {
+    --primary-color: #ff7518;
+    --secondary-color: #333;
+    --light-color: #f8f9fa;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: var(--primary-color) !important;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color: white;
+    border-right: 1px solid #ddd;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar .nav-link {
+    color: var(--secondary-color);
+    padding: 10px 15px;
+    border-left: 3px solid transparent;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 117, 24, 0.1);
+    border-left-color: var(--primary-color);
+}
+
+/* Card styling */
+.card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Table styling */
+.table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #e66a00;
+    border-color: #e66a00;
+}

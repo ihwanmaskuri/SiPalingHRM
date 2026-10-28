@@ -1,0 +1,46 @@
+@model IEnumerable<OrangeHRM.Entities.LeaveRequest>
+
+@{
+    ViewBag.Title = "My Leave Requests";
+}
+
+<h2>My Leave Requests</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date Applied</th>
+            <th>Leave Type</th>
+            <th>Status</th>
+            <th>Comments</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.DateApplied.ToString("yyyy-MM-dd")</td>
+                <td>@request.LeaveType?.Name</td>
+                <td>
+                    @switch (request.LeaveDays.FirstOrDefault()?.Status)
+                    {
+                        case 1: <span class="badge badge-warning">Pending</span>; break;
+                        case 2: <span class="badge badge-success">Approved</span>; break;
+                        case 3: <span class="badge badge-danger">Rejected</span>; break;
+                        default: <span class="badge badge-secondary">Unknown</span>; break;
+                    }
+                </td>
+                <td>@request.Comments</td>
+                <td>
+                    @if (request.LeaveDays.FirstOrDefault()?.Status == 1)
+                    {
+                        @Html.ActionLink("Cancel", "Cancel", new { id = request.Id }, new { @class = "btn btn-danger" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Apply for Leave", "Apply", null, new { @class = "btn btn-primary" })
