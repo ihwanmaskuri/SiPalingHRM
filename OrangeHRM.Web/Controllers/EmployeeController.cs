@@ -46,5 +46,26 @@ namespace OrangeHRM.Web.Controllers
             }
             return View(employee);
         }
+
+        // GET: Employee/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var employee = _employeeService.GetEmployeeById(id);
+            if (employee == null) return HttpNotFound();
+            return View(employee);
+        }
+
+        // POST: Employee/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                _employeeService.UpdateEmployee(employee);
+                return RedirectToAction("Index");
+            }
+            return View(employee);
+        }
     }
 }

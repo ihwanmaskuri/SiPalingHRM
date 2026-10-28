@@ -18,6 +18,7 @@ namespace OrangeHRM.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult PunchIn(int empNumber, string note)
         {
             _attendanceService.PunchIn(empNumber, note);
@@ -30,6 +31,7 @@ namespace OrangeHRM.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult PunchOut(int empNumber, string note)
         {
             _attendanceService.PunchOut(empNumber, note);

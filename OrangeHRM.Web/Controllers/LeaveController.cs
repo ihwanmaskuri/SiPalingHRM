@@ -13,6 +13,12 @@ namespace OrangeHRM.Web.Controllers
             _leaveService = new LeaveService();
         }
 
+        public ActionResult Index(int empNumber = 1)
+        {
+            var requests = _leaveService.GetEmployeeLeaveRequests(empNumber);
+            return View(requests);
+        }
+
         public ActionResult Apply()
         {
             ViewBag.LeaveTypes = _leaveService.GetActiveLeaveTypes();
@@ -20,15 +26,22 @@ namespace OrangeHRM.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Apply(LeaveRequest request)
         {
             if (ModelState.IsValid)
             {
                 _leaveService.SubmitLeaveRequest(request);
-                return RedirectToAction("Index", "Employee");
+                return RedirectToAction("Index");
             }
             ViewBag.LeaveTypes = _leaveService.GetActiveLeaveTypes();
             return View(request);
+        }
+
+        public ActionResult Cancel(int id)
+        {
+            _leaveService.CancelLeaveRequest(id);
+            return RedirectToAction("Index");
         }
     }
 }
